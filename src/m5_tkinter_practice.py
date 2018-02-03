@@ -39,6 +39,11 @@ def main():
                                      Say_Hello())
     print_stuff_button.grid()
 
+    print_stuff_button = ttk.Button(frame1, text='Do NOT')
+    print_stuff_button['command'] = (lambda:
+                                     secret())
+    print_stuff_button.grid()
+
     root.mainloop()
 
 
@@ -59,6 +64,11 @@ def string_repeater(my_entry_box, cool_entry_box):
     n = int(cool_entry_box.get())
     for k in range(n):
         print(string)
+
+
+def secret():
+    while True:
+        print('$')
 
 
     # ------------------------------------------------------------------
