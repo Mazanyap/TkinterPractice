@@ -2,8 +2,8 @@
 This project lets you try out Tkinter/Ttk and practice it!
 
 Authors: David Mutchler, Valerie Galluzzi, Mark Hays, Amanda Stouder,
-         their colleagues and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         their colleagues and Alex Mazany.
+"""  # Done: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 import tkinter
 from tkinter import ttk
@@ -11,29 +11,79 @@ from tkinter import ttk
 
 def main():
     """ Constructs a GUI with stuff on it. """
+
+    root = tkinter.Tk()
+
+    frame1 = ttk.Frame(root, padding=10)
+    frame1.grid()
+
+
+    my_entry_box = ttk.Entry(frame1)
+    my_entry_box.grid()
+
+    conditional_hello = ttk.Button(frame1, text='Ok?')
+    conditional_hello['command'] = (lambda:
+                                     hello_or_goodbye(my_entry_box))
+    conditional_hello.grid()
+
+    cool_entry_box = ttk.Entry(frame1)
+    cool_entry_box.grid()
+
+    stringer = ttk.Button(frame1, text='stringulate')
+    stringer['command'] = (lambda:
+                                    string_repeater(my_entry_box, cool_entry_box))
+    stringer.grid()
+
+    print_stuff_button = ttk.Button(frame1, text='Say Hello')
+    print_stuff_button['command'] = (lambda:
+                                     Say_Hello())
+    print_stuff_button.grid()
+
+    root.mainloop()
+
+
+def Say_Hello():
+    print('Hello')
+
+
+def hello_or_goodbye(my_entry_box):
+    contents_of_entry_box = my_entry_box.get()
+    if contents_of_entry_box == 'ok':
+        print('Hello')
+    else:
+        print('Goodbye')
+
+
+def string_repeater(my_entry_box, cool_entry_box):
+    string = my_entry_box.get()
+    n = int(cool_entry_box.get())
+    for k in range(n):
+        print(string)
+
+
     # ------------------------------------------------------------------
-    # TODO: 2. After reading and understanding the m1e module,
+    # Done: 2. After reading and understanding the m1e module,
     #   ** make a window that shows up. **
     # ------------------------------------------------------------------
 
     # ------------------------------------------------------------------
-    # TODO: 3. After reading and understanding the m2e module,
+    # Done: 3. After reading and understanding the m2e module,
     #   ** put a Frame on the window. **
     # ------------------------------------------------------------------
 
     # ------------------------------------------------------------------
-    # TODO: 4. After reading and understanding the m2e module,
+    # Done: 4. After reading and understanding the m2e module,
     #   ** put a Button on the Frame. **
     # ------------------------------------------------------------------
 
     # ------------------------------------------------------------------
-    # TODO: 5. After reading and understanding the m3e module,
+    # Done: 5. After reading and understanding the m3e module,
     #   ** make your Button respond to a button-press **
     #   ** by printing   "Hello"  on the Console.     **
     # ------------------------------------------------------------------
 
     # ------------------------------------------------------------------
-    # TODO: 6. After reading and understanding the m4e module,
+    # Done: 6. After reading and understanding the m4e module,
     #   -- Put an Entry box on the Frame.
     #   -- Put a second Button on the Frame.
     #   -- Make this new Button, when pressed, print "Hello"
@@ -42,7 +92,7 @@ def main():
     # ------------------------------------------------------------------
 
     # ------------------------------------------------------------------
-    # TODO: 7.
+    # Done: 7.
     #    -- Put a second Entry on the Frame.
     #    -- Put a third Button on the frame.
     #    -- Make this new Button respond to a button-press as follows:
@@ -66,7 +116,7 @@ def main():
     ####################################################################
 
     # ------------------------------------------------------------------
-    # TODO: 8. As time permits, do other interesting GUI things!
+    # Done: 8. As time permits, do other interesting GUI things!
     # ------------------------------------------------------------------
 
 
